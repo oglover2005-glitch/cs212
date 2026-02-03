@@ -1,0 +1,130 @@
+/* GRID LAYOUT */
+.container {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 120px auto 100px;
+    height: 100vh;
+}
+
+/* AREAS */
+header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+main { grid-area: main; overflow-y: auto; }
+footer { grid-area: footer; }
+
+/* HEADER */
+header {
+    background-color: #e8f1ff;
+    padding: 30px;
+    text-align: center;
+    border-bottom: 4px solid #3b82f6;
+}
+
+h1 {
+    margin: 0;
+    color: #1e40af;
+}
+
+/* SIDEBAR */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    background: #f0f4ff;
+    position: relative;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #1e3a8a;
+    font-weight: bold;
+}
+
+/* RESUME BUTTON */
+.resume-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: #3b82f6;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 6px;
+}
+
+.resume-btn:hover {
+    background: #1e40af;
+}
+
+/* MAIN CONTENT SECTIONS */
+section {
+    padding: 20px 40px;
+    margin-bottom: 30px;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+/* EDUCATION TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #3b82f6;
+}
+
+th, td {
+    padding: 10px;
+}
+
+/* SKILLS FLEXBOX */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+}
+
+.skills-list li {
+    background: #e0e0e0;
+    padding: 10px 15px;
+    border-radius: 6px;
+}
+
+/* PROJECTS GRID */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 6px;
+}
+
+/* FOOTER POSITIONING */
+footer {
+    background: #333;
+    color: white;
+    padding: 20px;
+    position: relative;
+}
+
+.footer-contact {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
