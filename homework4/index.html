@@ -2,71 +2,145 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Homework 4 Portfolio</title>
+    <title>Owen Glover – Portfolio (HW4)</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Main grid container -->
-    <div class="container">
+    <!-- TOP NAVIGATION + STICKY HEADER -->
+    <header class="top-header">
+        <h1>Owen Glover</h1>
+        <p class="subtitle">NAU Cybersecurity Major</p>
 
-        <!-- HEADER -->
-        <header>
-            <h1>My Portfolio – Homework 4</h1>
-        </header>
-
-        <!-- SIDEBAR NAVIGATION -->
-        <div class="sidebar">
+        <nav class="top-nav">
+            <a href="#summary">Summary</a>
+            <a href="#education">Education</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
-            <a href="#resume">Resume</a>
+            <a href="#contact">Contact</a>
+            <a href="Resume.pdf" class="resume-btn" download>Resume</a>
+        </nav>
+    </header>
 
-            <!-- Resume button at bottom -->
-            <a href="Resume.pdf" class="resume-btn" download>Download Resume</a>
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <!-- SUMMARY -->
+        <section id="summary">
+            <h2>About Me</h2>
+            <p>
+                My name is <mark>Owen Glover</mark>. I was born and raised in Reno, Nevada, and I’ve been attending NAU for 
+                <ins>2 years</ins> now. I am pursuing a degree in cybersecurity. I love playing guitar, mountain biking, and skiing. 
+                I drive a blue Jeep and I’m looking forward to this semester!
+            </p>
+        </section>
+
+        <!-- EDUCATION -->
+        <section id="education">
+            <h2>Education & Experience</h2>
+
+            <table>
+                <tr>
+                    <th>Institution / Company</th>
+                    <th>Role / Degree</th>
+                    <th>Years</th>
+                </tr>
+                <tr>
+                    <td>NAU</td>
+                    <td>Cybersecurity Major</td>
+                    <td>2024–Present</td>
+                </tr>
+                <tr>
+                    <td>IN‑N‑OUT Burger</td>
+                    <td>Customer Service</td>
+                    <td>3 Years</td>
+                </tr>
+                <tr>
+                    <td>Car Wash Detailing</td>
+                    <td>Detailer</td>
+                    <td>Summer 2025</td>
+                </tr>
+                <tr>
+                    <td>High School</td>
+                    <td>National Honor Society</td>
+                    <td>Graduated</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills">
+            <h2>Skills</h2>
+
+            <h3>Technical Skills</h3>
+            <ul class="skills-list">
+                <li>C++</li>
+                <li>HTML/CSS</li>
+                <li>Python (Turtle Art)</li>
+                <li>Java — <del>expert</del> <ins>needs a refresh</ins></li>
+                <li>Cybersecurity fundamentals</li>
+            </ul>
+
+            <h3>Soft Skills</h3>
+            <ul class="skills-list">
+                <li>Strong problem‑solving ability</li>
+                <li>Teamwork</li>
+                <li>Customer service</li>
+            </ul>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects">
+            <h2>Projects</h2>
+
+            <!-- HW4 requires floated images -->
+            <img src="images/project1.jpg" class="project-img" alt="Project 1">
+            <img src="images/project2.jpg" class="project-img" alt="Project 2">
+            <img src="images/project3.jpg" class="project-img" alt="Project 3">
+
+            <div class="project-grid">
+
+                <div class="project-card">
+                    <h3>Turtle Art Projects</h3>
+                    <p>Creative visual programming using Python’s turtle module.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>Robotic Coding</h3>
+                    <img src="robot1.jpeg" alt="Robot coding project image 1">
+                    <img src="robot2.jpeg" alt="Robot coding project image 2">
+                    <p>Programming robots to perform tasks and respond to sensors.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>Personal Website</h3>
+                    <p>This portfolio website built with HTML and CSS.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:oglover2005@gmail.com">oglover2005@gmail.com</a></p>
+            <p>Phone: <a href="tel:+17755609477">(775) 560‑9477</a></p>
+            <p>GitHub: <a href="https://github.com/oglover2005-glitch">github.com/oglover2005-glitch</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/owen-glover-885b02300">My LinkedIn</a></p>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Owen Glover</p>
+
+        <div class="footer-contact">
+            <p>Email: oglover2005@gmail.com</p>
+            <p>Phone: (775) 560‑9477</p>
         </div>
-
-        <!-- MAIN CONTENT -->
-        <main>
-
-            <!-- SKILLS SECTION -->
-            <section id="skills">
-                <h2>Skills</h2>
-                <ul class="skills-list">
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>JavaScript</li>
-                    <li>Python</li>
-                </ul>
-            </section>
-
-            <!-- PROJECTS SECTION -->
-            <section id="projects">
-                <h2>Projects</h2>
-
-                <!-- HW4 requires 2–3 floated images -->
-                <img src="images/project1.jpg" class="project-img" alt="Project 1">
-                <img src="images/project2.jpg" class="project-img" alt="Project 2">
-                <img src="images/project3.jpg" class="project-img" alt="Project 3">
-
-                <p>Here are a few of my recent projects. Hover over the images to see the effects.</p>
-            </section>
-
-            <!-- RESUME SECTION -->
-            <section id="resume">
-                <h2>Resume</h2>
-                <p>You can download my resume using the button in the sidebar.</p>
-            </section>
-
-        </main>
-
-        <!-- FOOTER -->
-        <footer>
-            <p>© 2026 Owen Glover</p>
-            <div class="footer-contact">Contact: your-email@example.com</div>
-        </footer>
-
-    </div>
+    </footer>
 
 </body>
 </html>
