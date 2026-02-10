@@ -2,44 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Homework 4</title>
+    <title>Homework 4 Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Sticky header -->
-    <header>
-        <h1>My Portfolio – Homework 4</h1>
-    </header>
+    <!-- Main grid container -->
+    <div class="container">
 
-    <main>
+        <!-- HEADER -->
+        <header>
+            <h1>My Portfolio – Homework 4</h1>
+        </header>
 
-        <!-- Left navigation -->
-        <nav class="left-nav">
+        <!-- SIDEBAR NAVIGATION -->
+        <div class="sidebar">
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
             <a href="#resume">Resume</a>
-        </nav>
 
-        <!-- Main content area -->
-        <section class="content">
+            <!-- Resume button at bottom -->
+            <a href="Resume.pdf" class="resume-btn" download>Download Resume</a>
+        </div>
 
-            <!-- Skills section -->
+        <!-- MAIN CONTENT -->
+        <main>
+
+            <!-- SKILLS SECTION -->
             <section id="skills">
                 <h2>Skills</h2>
-                <div class="skills">
-                    <div class="skill-item">HTML</div>
-                    <div class="skill-item">CSS</div>
-                    <div class="skill-item">JavaScript</div>
-                    <div class="skill-item">Python</div>
-                </div>
+                <ul class="skills-list">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>Python</li>
+                </ul>
             </section>
 
-            <!-- Projects section -->
+            <!-- PROJECTS SECTION -->
             <section id="projects">
                 <h2>Projects</h2>
 
+                <!-- HW4 requires 2–3 floated images -->
                 <img src="images/project1.jpg" class="project-img" alt="Project 1">
                 <img src="images/project2.jpg" class="project-img" alt="Project 2">
                 <img src="images/project3.jpg" class="project-img" alt="Project 3">
@@ -47,16 +52,21 @@
                 <p>Here are a few of my recent projects. Hover over the images to see the effects.</p>
             </section>
 
-            <!-- Resume button -->
+            <!-- RESUME SECTION -->
             <section id="resume">
                 <h2>Resume</h2>
-                <a href="Resume.pdf" class="resume-btn" download>Download Resume</a>
+                <p>You can download my resume using the button in the sidebar.</p>
             </section>
 
-        </section>
+        </main>
 
-    </main>
+        <!-- FOOTER -->
+        <footer>
+            <p>© 2026 Owen Glover</p>
+            <div class="footer-contact">Contact: your-email@example.com</div>
+        </footer>
+
+    </div>
 
 </body>
 </html>
-
