@@ -1,1 +1,120 @@
+/* Basic page setup */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Sticky header */
+header {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+    z-index: 1000;
+}
+
+/* Layout using grid */
+main {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Left navigation */
+.left-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.left-nav a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Skills section */
+.skills {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.skill-item {
+    padding: 12px;
+    background: #f2f2f2;
+    border-radius: 6px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover effects for skills */
+.skill-item:hover {
+    transform: scale(1.1) rotate(2deg);
+    background-color: #e6f3ff;
+}
+
+/* Project images */
+.project-img {
+    width: 30%;
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.project-img:hover {
+    transform: scale(1.05);
+    opacity: 0.85;
+}
+
+/* Resume button */
+.resume-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #0077cc;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resume-btn:hover {
+    background: #005fa3;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* ----------------------------- */
+/* Responsive media queries      */
+/* ----------------------------- */
+
+/* Phones */
+@media (max-width: 480px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    .skills, .projects {
+        grid-template-columns: 1fr;
+    }
+
+    .project-img {
+        width: 100%;
+        float: none;
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .skills {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Larger screens */
+@media (min-width: 1024px) {
+    .skills {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
 
