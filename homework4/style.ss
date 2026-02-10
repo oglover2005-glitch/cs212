@@ -1,0 +1,222 @@
+/* ============================
+   GRID LAYOUT (same as HW3)
+   ============================ */
+.container {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 120px auto 100px;
+    height: 100vh;
+}
+
+/* AREA ASSIGNMENTS */
+header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+main { grid-area: main; overflow-y: auto; }
+footer { grid-area: footer; }
+
+/* ============================
+   HEADER (now sticky for HW4)
+   ============================ */
+header {
+    background-color: #e8f1ff;
+    padding: 30px;
+    text-align: center;
+    border-bottom: 4px solid #3b82f6;
+
+    /* HW4 requirement: sticky header */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+h1 {
+    margin: 0;
+    color: #1e40af;
+}
+
+/* ============================
+   SIDEBAR (flex requirement)
+   ============================ */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    background: #f0f4ff;
+    position: relative;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #1e3a8a;
+    font-weight: bold;
+}
+
+/* ============================
+   RESUME BUTTON (transitions)
+   ============================ */
+.resume-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: #3b82f6;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 6px;
+
+    /* HW4 transition requirement */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resume-btn:hover {
+    background: #1e40af;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* ============================
+   MAIN CONTENT SECTIONS
+   ============================ */
+section {
+    padding: 20px 40px;
+    margin-bottom: 30px;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+/* ============================
+   EDUCATION TABLE
+   ============================ */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #3b82f6;
+}
+
+th, td {
+    padding: 10px;
+}
+
+/* ============================
+   SKILLS (HW4 transforms + transitions)
+   ============================ */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+}
+
+.skills-list li {
+    background: #e0e0e0;
+    padding: 10px 15px;
+    border-radius: 6px;
+
+    /* HW4: transitions + transforms */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.skills-list li:hover {
+    transform: scale(1.1) rotate(2deg);
+    background-color: #dbeafe;
+}
+
+/* ============================
+   PROJECTS (HW4 float + transitions)
+   ============================ */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 6px;
+
+    /* HW4: image transitions */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* HW4: float requirement */
+.project-img {
+    width: 30%;
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.project-img:hover {
+    transform: scale(1.05);
+    opacity: 0.85;
+}
+
+/* ============================
+   FOOTER
+   ============================ */
+footer {
+    background: #333;
+    color: white;
+    padding: 20px;
+    position: relative;
+}
+
+.footer-contact {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+/* ============================
+   RESPONSIVE MEDIA QUERIES
+   (HW4 requirement)
+   ============================ */
+
+/* Phones */
+@media (max-width: 480px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "main"
+            "footer";
+    }
+
+    .skills-list {
+        flex-direction: column;
+    }
+
+    .project-img {
+        width: 100%;
+        float: none;
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .skills-list {
+        justify-content: center;
+    }
+}
+
+/* Larger screens */
+@media (min-width: 1024px) {
+    .skills-list {
+        gap: 15px;
+    }
+}
