@@ -1,120 +1,62 @@
-/* Basic page setup */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework 4</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-/* Sticky header */
-header {
-    position: sticky;
-    top: 0;
-    background: #fff;
-    padding: 15px;
-    border-bottom: 1px solid #ccc;
-    z-index: 1000;
-}
+<body>
 
-/* Layout using grid */
-main {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 20px;
-    padding: 20px;
-}
+    <!-- Sticky header -->
+    <header>
+        <h1>My Portfolio – Homework 4</h1>
+    </header>
 
-/* Left navigation */
-.left-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+    <main>
 
-.left-nav a {
-    text-decoration: none;
-    color: #333;
-}
+        <!-- Left navigation -->
+        <nav class="left-nav">
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#resume">Resume</a>
+        </nav>
 
-/* Skills section */
-.skills {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-}
+        <!-- Main content area -->
+        <section class="content">
 
-.skill-item {
-    padding: 12px;
-    background: #f2f2f2;
-    border-radius: 6px;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
+            <!-- Skills section -->
+            <section id="skills">
+                <h2>Skills</h2>
+                <div class="skills">
+                    <div class="skill-item">HTML</div>
+                    <div class="skill-item">CSS</div>
+                    <div class="skill-item">JavaScript</div>
+                    <div class="skill-item">Python</div>
+                </div>
+            </section>
 
-/* Hover effects for skills */
-.skill-item:hover {
-    transform: scale(1.1) rotate(2deg);
-    background-color: #e6f3ff;
-}
+            <!-- Projects section -->
+            <section id="projects">
+                <h2>Projects</h2>
 
-/* Project images */
-.project-img {
-    width: 30%;
-    float: left;
-    margin-right: 15px;
-    margin-bottom: 15px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
+                <img src="images/project1.jpg" class="project-img" alt="Project 1">
+                <img src="images/project2.jpg" class="project-img" alt="Project 2">
+                <img src="images/project3.jpg" class="project-img" alt="Project 3">
 
-.project-img:hover {
-    transform: scale(1.05);
-    opacity: 0.85;
-}
+                <p>Here are a few of my recent projects. Hover over the images to see the effects.</p>
+            </section>
 
-/* Resume button */
-.resume-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #0077cc;
-    color: white;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
+            <!-- Resume button -->
+            <section id="resume">
+                <h2>Resume</h2>
+                <a href="Resume.pdf" class="resume-btn" download>Download Resume</a>
+            </section>
 
-.resume-btn:hover {
-    background: #005fa3;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
+        </section>
 
-/* ----------------------------- */
-/* Responsive media queries      */
-/* ----------------------------- */
+    </main>
 
-/* Phones */
-@media (max-width: 480px) {
-    main {
-        grid-template-columns: 1fr;
-    }
-
-    .skills, .projects {
-        grid-template-columns: 1fr;
-    }
-
-    .project-img {
-        width: 100%;
-        float: none;
-    }
-}
-
-/* Tablets */
-@media (max-width: 768px) {
-    .skills {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* Larger screens */
-@media (min-width: 1024px) {
-    .skills {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
+</body>
+</html>
 
