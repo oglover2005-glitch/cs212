@@ -27,9 +27,8 @@
     align-items: center;
     z-index: 2000;
     animation: fadeOut 1.5s ease forwards;
-    animation-delay: 1s;
+    animation-delay: 2.5s;
 }
-
 #spinner::after {
     content: "";
     width: 40px;
