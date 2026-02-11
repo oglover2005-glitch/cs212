@@ -165,7 +165,9 @@ th, td {
     transform: scale(1.05);
     opacity: 0.85;
 }
-
+.clearfix { 
+   clear: both; 
+}
 /* ============================
    FOOTER
    ============================ */
