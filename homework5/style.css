@@ -1,20 +1,6 @@
 /* ============================
-   GRID LAYOUT (same as HW3)
-   ============================ */
-.container {
-    display: grid;
-    grid-template-areas:
-        "header header"
-        "sidebar main"
-        "footer footer";
-    grid-template-columns: 250px 1fr;
-    grid-template-rows: 120px auto 100px;
-    height: 100vh;
-}
-/* ============================
    SIMPLE CSS SPINNER (BONUS)
    ============================ */
-
 #spinner {
     position: fixed;
     top: 0;
@@ -25,10 +11,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 2000;
+    z-index: 3000;
     animation: fadeOut 1.5s ease forwards;
     animation-delay: 2.5s;
 }
+
 #spinner::after {
     content: "";
     width: 40px;
@@ -39,14 +26,10 @@
     animation: spin 0.8s linear infinite;
 }
 
-/* Spinner rotation */
 @keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
+    to { transform: rotate(360deg); }
 }
 
-/* Fade out the whole overlay */
 @keyframes fadeOut {
     to {
         opacity: 0;
@@ -54,25 +37,23 @@
     }
 }
 
-/* AREA ASSIGNMENTS */
-header { grid-area: header; }
-.sidebar { grid-area: sidebar; }
-main { grid-area: main; overflow-y: auto; }
-footer { grid-area: footer; }
-
 /* ============================
-   HEADER (now sticky for HW4)
+   FIXED HEADER (HW5)
    ============================ */
-header {
+.top-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
     background-color: #e8f1ff;
-    padding: 30px;
+    padding: 20px;
     text-align: center;
     border-bottom: 4px solid #3b82f6;
+    z-index: 2000;
 
-    /* HW4 requirement: sticky header */
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
 }
 
 h1 {
@@ -81,36 +62,31 @@ h1 {
 }
 
 /* ============================
-   SIDEBAR (flex requirement)
+   FLEXBOX NAV BAR (HW5 Step 1)
    ============================ */
-.sidebar {
+.top-nav {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding: 20px;
-    background: #f0f4ff;
-    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
 }
 
-.sidebar a {
+.top-nav a {
+    flex-grow: 1;
+    text-align: center;
+    padding: 10px;
     text-decoration: none;
     color: #1e3a8a;
     font-weight: bold;
 }
 
-/* ============================
-   RESUME BUTTON (transitions)
-   ============================ */
+/* Resume button */
 .resume-btn {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
     background: #3b82f6;
     color: white;
     padding: 10px 15px;
     border-radius: 6px;
-
-    /* HW4 transition requirement */
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -120,12 +96,23 @@ h1 {
 }
 
 /* ============================
-   MAIN CONTENT SECTIONS
+   MAIN CONTAINER (HW5 Step 2)
+   ============================ */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    padding: 160px 20px 120px; /* prevents overlap with fixed header/footer */
+}
+
+/* ============================
+   SECTIONS
    ============================ */
 section {
-    padding: 20px 40px;
-    margin-bottom: 30px;
     background: #f9f9f9;
+    padding: 20px 40px;
     border-radius: 8px;
 }
 
@@ -146,59 +133,53 @@ th, td {
 }
 
 /* ============================
-   SKILLS (HW4 transforms + transitions)
+   SKILLS GRID (HW5 Step 3)
    ============================ */
-.skills-list {
-    display: flex;
-    flex-wrap: wrap;
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 12px;
     list-style: none;
     padding: 0;
 }
 
-.skills-list li {
+.skills-grid li {
     background: #e0e0e0;
-    padding: 10px 15px;
+    padding: 12px;
     border-radius: 6px;
-
-    /* HW4: transitions + transforms */
+    text-align: center;
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.skills-list li:hover {
+.skills-grid li:hover {
     transform: scale(1.1) rotate(2deg);
     background-color: #dbeafe;
 }
 
+/* Example highlight */
+.skills-grid li:first-child {
+    grid-column: span 2;
+}
+
 /* ============================
-   PROJECTS (HW4 float + transitions)
+   PROJECTS GRID (HW5 Step 3)
    ============================ */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
 }
 
 .project-card {
-    background: #ffffff;
+    background: white;
     padding: 15px;
     border-radius: 8px;
 }
 
-.project-card img {
-    width: 100%;
-    border-radius: 6px;
-
-    /* HW4: image transitions */
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-/* HW4: float requirement */
+/* Floated images */
 .project-img {
     width: 30%;
-    float: left;
-    margin-right: 15px;
-    margin-bottom: 15px;
+    margin: 10px;
     border-radius: 6px;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -207,60 +188,48 @@ th, td {
     transform: scale(1.05);
     opacity: 0.85;
 }
-.clearfix { 
-   clear: both; 
-}
+
+.float-left { float: left; }
+.float-right { float: right; }
+
+.clearfix { clear: both; }
+
 /* ============================
-   FOOTER
+   FIXED FOOTER (HW5 Step 4)
    ============================ */
-footer {
+.footer-fixed {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     background: #333;
     color: white;
     padding: 20px;
-    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-shrink: 0;
+    z-index: 2000;
 }
 
 .footer-contact {
-    position: absolute;
-    right: 20px;
-    top: 20px;
+    text-align: right;
 }
 
 /* ============================
    RESPONSIVE MEDIA QUERIES
-   (HW4 requirement)
    ============================ */
-
-/* Phones */
 @media (max-width: 480px) {
-    .container {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            "header"
-            "main"
-            "footer";
-    }
-
-    .skills-list {
-        flex-direction: column;
-    }
-
     .project-img {
         width: 100%;
         float: none;
     }
-}
 
-/* Tablets */
-@media (max-width: 768px) {
-    .skills-list {
-        justify-content: center;
+    .top-nav {
+        flex-direction: column;
     }
 }
 
-/* Larger screens */
-@media (min-width: 1024px) {
-    .skills-list {
-        gap: 15px;
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     }
 }
