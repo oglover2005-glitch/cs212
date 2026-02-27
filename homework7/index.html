@@ -1,1 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Owen Glover – Portfolio (HW7)</title>
+
+    <!-- BOOTSTRAP CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
+
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            padding-top: 120px;
+        }
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- SPINNER -->
+<div id="spinner"></div>
+
+<!-- HEADER -->
+<header class="container-fluid bg-primary bg-gradient text-white py-4 fixed-top">
+    <div class="row text-center">
+        <div class="col">
+            <h1 class="fw-bold">Owen Glover</h1>
+            <p class="lead">NAU Cybersecurity Major</p>
+        </div>
+    </div>
+</header>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="top: 120px;">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">Portfolio</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#greetingSection">Greeting</a></li>
+                <li class="nav-item"><a class="nav-link" href="#summary">Summary</a></li>
+                <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item">
+                    <a class="btn btn-primary ms-3" id="resumeBtn" href="Resume (2) (1).docx" download>Resume</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="container mt-5">
+
+    <!-- NEW GREETING SECTION (HW7 STEP 4) -->
+    <section id="greetingSection" class="my-5">
+        <h2 id="greetingMessage" class="fw-bold"></h2>
+    </section>
+
+    <!-- SUMMARY -->
+    <section id="summary" class="my-5">
+        <h2 class="mb-3">About Me</h2>
+        <p class="lead">
+            My name is <mark>Owen Glover</mark>. I was born and raised in Reno, Nevada, and I’ve been attending NAU for 
+            <ins>2 years</ins> now. I am pursuing a degree in cybersecurity. I love playing guitar, mountain biking, and skiing. 
+            I drive a blue Jeep and I’m looking forward to this semester!
+        </p>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="my-5">
+        <h2 class="mb-3">Education & Experience</h2>
+
+        <table class="table table-bordered table-striped">
+            <thead class="table-primary">
+                <tr>
+                    <th>Institution / Company</th>
+                    <th>Role / Degree</th>
+                    <th>Years</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>NAU</td>
+                    <td>Cybersecurity Major</td>
+                    <td>2024–Present</td>
+                </tr>
+                <tr>
+                    <td>IN‑N‑OUT Burger</td>
+                    <td>Customer Service</td>
+                    <td>3 Years</td>
+                </tr>
+                <tr>
+                    <td>Car Wash Detailing</td>
+                    <td>Detailer</td>
+                    <td>Summer 2025</td>
+                </tr>
+                <tr>
+                    <td>High School</td>
+                    <td>National Honor Society</td>
+                    <td>Graduated</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="my-5">
+        <h2 class="mb-4">Skills</h2>
+
+        <h3>Technical Skills</h3>
+        <div class="row g-4 my-3">
+            <div class="col-md-4"><div class="card p-3 text-center fw-bold">C++</div></div>
+            <div class="col-md-4"><div class="card p-3 text-center fw-bold">HTML/CSS</div></div>
+            <div class="col-md-4"><div class="card p-3 text-center fw-bold">Python (Turtle Art)</div></div>
+            <div class="col-md-4"><div class="card p-3 text-center fw-bold">Java — needs a refresh</div></div>
+            <div class="col-md-4"><div class="card p-3 text-center fw-bold">Cybersecurity fundamentals</div></div>
+        </div>
+
+        <h3>Soft Skills</h3>
+        <div class="row g-4 my-3">
+            <div class="col-md-4"><div class="card p-3 text-center fw-bold">Strong problem‑solving ability</div></div>
+            <div class="col-md-4"><div class="card p-3 text-center fw-bold">Teamwork</div></div>
+            <div class="col-md-4"><div class="card p-3 text-center fw-bold">Customer service</div></div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="my-5">
+        <h2 class="mb-4">Projects</h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="robot1.jpeg" class="card-img-top img-fluid" alt="Robot coding project image 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Robotic Coding</h5>
+                        <p class="card-text">Programming robots to perform tasks and respond to sensors.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="robot2.jpeg" class="card-img-top img-fluid" alt="Robot coding project image 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Turtle Art Projects</h5>
+                        <p class="card-text">Creative visual programming using Python’s turtle module.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Personal Website</h5>
+                        <p class="card-text">This portfolio website built with HTML, CSS, and now Bootstrap.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NEW ONGOING PROJECT (HW7 STEP 5) -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Ongoing Project</h5>
+                        <p class="card-text">
+                            Deadline: <span id="deadlineDate">2026-04-15</span><br>
+                            Days Remaining: <span id="daysLeft"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="my-5">
+        <h2 class="mb-3">Contact</h2>
+        <p>Email: <a href="mailto:oglover2005@gmail.com">oglover2005@gmail.com</a></p>
+        <p>Phone: <a href="tel:+17755609477">(775) 560‑9477</a></p>
+        <p>GitHub: <a href="https://github.com/oglover2005-glitch">github.com/oglover2005-glitch</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/owen-glover-885b02300">My LinkedIn</a></p>
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="container-fluid bg-dark bg-gradient text-white py-4 mt-5">
+    <div class="row text-center">
+        <div class="col">
+            <p class="mb-0">© 2026 Owen Glover</p>
+            <p class="mb-0">Email: oglover2005@gmail.com | Phone: (775) 560‑9477</p>
+        </div>
+    </div>
+</footer>
+
+<!-- BOOTSTRAP JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- SMOOTH SCROLL -->
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute("href"));
+    const offset = 190;
+    const topPos = target.offsetTop - offset;
+
+    window.scrollTo({
+      top: topPos,
+      behavior: "smooth"
+    });
+  });
+});
+</script>
+
+<!-- HW7 JAVASCRIPT -->
+<script src="app.js"></script>
+
+</body>
+</html>
 
