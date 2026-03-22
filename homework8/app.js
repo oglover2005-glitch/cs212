@@ -234,3 +234,25 @@ document.addEventListener("DOMContentLoaded", function () {
   renderProjects();
   renderTables();
 });
+// ------------------------------------------------------
+// EXTRA CREDIT — DARK MODE TOGGLE
+// ------------------------------------------------------
+
+const darkToggle = document.getElementById("darkModeToggle");
+
+if (darkToggle) {
+  darkToggle.addEventListener("click", function () {
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+      darkToggle.textContent = "Light Mode";
+      darkToggle.classList.remove("btn-light");
+      darkToggle.classList.add("btn-dark");
+    } else {
+      darkToggle.textContent = "Dark Mode";
+      darkToggle.classList.remove("btn-dark");
+      darkToggle.classList.add("btn-light");
+    }
+  });
+}
+
