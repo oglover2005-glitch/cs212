@@ -123,3 +123,9 @@ footer {
 .dark-mode footer {
   background-color: #333;
 }
+.dark-mode #skillsList .card {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+  border: 1px solid #333;
+}
+
