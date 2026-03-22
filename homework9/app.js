@@ -1,8 +1,7 @@
 // ------------------------------------------------------
-// HW7 FEATURES (Kept exactly as before)
+// HW7 — GREETING + RESUME ALERT
 // ------------------------------------------------------
 
-// Greeting based on time of day
 function updateGreeting() {
   const greetingEl = document.getElementById("greeting");
   if (!greetingEl) return;
@@ -17,152 +16,28 @@ function updateGreeting() {
   greetingEl.textContent = `${greeting}, Owen!`;
 }
 
-// Days until deadline function (HW7)
-function daysUntil(dateString) {
-  const today = new Date();
-  const target = new Date(dateString);
-  const diff = target - today;
-  return Math.ceil(diff / (1000 * 60 * 60 * 24));
-}
-
-console.log("Hello World!");
-console.log("Days until deadline:", daysUntil("2026-04-15"));
-
-// Resume alert (HW7)
 let hasDownloadedResume = false;
 
 
 // ------------------------------------------------------
-// HW8 STEP 1 — Add Skills From Input
-// ------------------------------------------------------
-
-const skillsList = document.getElementById("skillsList");
-const newSkillInput = document.getElementById("newSkillInput");
-const addSkillBtn = document.getElementById("addSkillBtn");
-
-if (addSkillBtn) {
-  addSkillBtn.addEventListener("click", function () {
-    const skillText = newSkillInput.value.trim();
-    if (skillText === "") return;
-
-    const col = document.createElement("div");
-    col.className = "col-md-4";
-
-    const card = document.createElement("div");
-    card.className = "card p-3 text-center fw-bold";
-    card.textContent = skillText;
-
-    col.appendChild(card);
-    skillsList.appendChild(col);
-
-    newSkillInput.value = "";
-  });
-}
-
-
-// ------------------------------------------------------
-// HW8 STEPS 2 & 3 — Project Arrays + Loop + Status
-// ------------------------------------------------------
-
-const projectTitles = [
-  "Robotic Coding",
-  "Turtle Art Projects",
-  "Personal Website"
-];
-
-const projectDescriptions = [
-  "Programming robots to perform tasks and respond to sensors.",
-  "Creative visual programming using Python’s turtle module.",
-  "This portfolio website built with HTML, CSS, and JavaScript."
-];
-
-const projectDeadlines = [
-  "2026-05-01", // future
-  "2025-12-31", // past
-  "2026-04-30"  // future
-];
-
-function getProjectStatus(deadline) {
-  const today = new Date();
-  const dueDate = new Date(deadline);
-
-  if (dueDate > today) return "Ongoing";
-  if (dueDate < today) return "Completed";
-  return "Due Today";
-}
-
-function renderProjects() {
-  const container = document.getElementById("projectsContainer");
-  if (!container) return;
-
-  container.innerHTML = "";
-
-  for (let i = 0; i < projectTitles.length; i++) {
-    const col = document.createElement("div");
-    col.className = "col-md-4";
-
-    const card = document.createElement("div");
-    card.className = "card";
-
-    const body = document.createElement("div");
-    body.className = "card-body";
-
-    const titleEl = document.createElement("h5");
-    titleEl.className = "card-title";
-    titleEl.textContent = projectTitles[i];
-
-    const descEl = document.createElement("p");
-    descEl.textContent = projectDescriptions[i];
-
-    const deadlineEl = document.createElement("p");
-    deadlineEl.textContent = "Deadline: " + projectDeadlines[i];
-
-    const statusEl = document.createElement("span");
-    statusEl.className = "badge bg-info text-dark";
-    statusEl.textContent = getProjectStatus(projectDeadlines[i]);
-
-    body.appendChild(titleEl);
-    body.appendChild(descEl);
-    body.appendChild(deadlineEl);
-    body.appendChild(statusEl);
-
-    card.appendChild(body);
-    col.appendChild(card);
-    container.appendChild(col);
-  }
-}
-
-
-// ------------------------------------------------------
-// HW8 STEP 4 — Resume Download Counter
+// HW8 — RESUME COUNTER
 // ------------------------------------------------------
 
 let resumeDownloadCount = 0;
-const downloadCountEl = document.getElementById("downloadCount");
 
-const resumeBtn = document.getElementById("resumeBtn");
-if (resumeBtn) {
-  resumeBtn.addEventListener("click", function () {
+$("#resumeBtn").click(function () {
+  if (!hasDownloadedResume) {
+    setTimeout(() => alert("Your resume is downloaded successfully!"), 2000);
+    hasDownloadedResume = true;
+  }
 
-    // HW7: One-time delayed alert
-    if (!hasDownloadedResume) {
-      setTimeout(() => {
-        alert("Your resume is downloaded successfully!");
-      }, 2000);
-      hasDownloadedResume = true;
-    }
-
-    // HW8: Count every download
-    resumeDownloadCount++;
-    if (downloadCountEl) {
-      downloadCountEl.textContent = resumeDownloadCount;
-    }
-  });
-}
+  resumeDownloadCount++;
+  $("#downloadCount").text(resumeDownloadCount);
+});
 
 
 // ------------------------------------------------------
-// HW8 STEP 5 — Dynamic Tables (Education & Experience)
+// HW8 — EDUCATION & EXPERIENCE TABLES
 // ------------------------------------------------------
 
 const educationData = [
@@ -226,32 +101,157 @@ function renderTables() {
 
 
 // ------------------------------------------------------
-// HW8 INITIALIZATION
+// HW9 — DYNAMIC NAVIGATION
 // ------------------------------------------------------
 
-document.addEventListener("DOMContentLoaded", function () {
-  updateGreeting();
-  renderProjects();
-  renderTables();
-});
-// ------------------------------------------------------
-// EXTRA CREDIT — DARK MODE TOGGLE
-// ------------------------------------------------------
+const navItems = ["About", "Skills", "Projects", "Education", "Contact"];
 
-const darkToggle = document.getElementById("darkModeToggle");
+function renderNav() {
+  $("#navList").empty();
 
-if (darkToggle) {
-  darkToggle.addEventListener("click", function () {
-    document.body.classList.toggle("dark-mode");
+  navItems.forEach(item => {
+    $("#navList").append(`
+      <li class="nav-item">
+        <a class="nav-link" href="#${item.toLowerCase()}">${item}</a>
+      </li>
+    `);
+  });
 
-    if (document.body.classList.contains("dark-mode")) {
-      darkToggle.textContent = "Light Mode";
-      darkToggle.classList.remove("btn-light");
-      darkToggle.classList.add("btn-dark");
-    } else {
-      darkToggle.textContent = "Dark Mode";
-      darkToggle.classList.remove("btn-dark");
-      darkToggle.classList.add("btn-light");
-    }
+  $(".nav-link").click(function (e) {
+    e.preventDefault();
+    const target = $(this).attr("href");
+    $("html, body").animate(
+      { scrollTop: $(target).offset().top - 60 },
+      500
+    );
   });
 }
+
+renderNav();
+
+
+// ------------------------------------------------------
+// HW9 — SKILLS (ADD, EDIT, DELETE, ANIMATE)
+// ------------------------------------------------------
+
+let skills = [];
+let editingIndex = -1;
+
+function renderSkills() {
+  $("#skillsList").empty();
+
+  skills.forEach((skill, index) => {
+    $("#skillsList").append(`
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <span class="skill-text" data-index="${index}">${skill}</span>
+        <button class="btn btn-danger btn-sm delete-btn" data-index="${index}">X</button>
+      </li>
+    `);
+  });
+
+  // Edit skill
+  $(".skill-text").click(function () {
+    editingIndex = $(this).data("index");
+    $("#skillInput").val(skills[editingIndex]).focus();
+  });
+
+  // Delete skill
+  $(".delete-btn").click(function () {
+    const i = $(this).data("index");
+    $(this).closest("li").slideUp(200, () => {
+      skills.splice(i, 1);
+      renderSkills();
+    });
+  });
+}
+
+function addOrEditSkill() {
+  const text = $("#skillInput").val().trim();
+  if (text === "") return;
+
+  if (skills.includes(text) && editingIndex === -1) return;
+
+  if (editingIndex === -1) {
+    skills.push(text);
+  } else {
+    skills[editingIndex] = text;
+    editingIndex = -1;
+  }
+
+  $("#skillInput").val("");
+  renderSkills();
+}
+
+$("#addSkillBtn").click(addOrEditSkill);
+
+$("#skillInput").keydown(function (e) {
+  if (e.key === "Enter") addOrEditSkill();
+  if (e.key === "Escape") {
+    $("#skillInput").val("");
+    editingIndex = -1;
+  }
+});
+
+
+// ------------------------------------------------------
+// HW9 — PROJECTS + SORTING
+// ------------------------------------------------------
+
+let projects = [
+  {
+    title: "Robotic Coding",
+    description: "Programming robots to perform tasks and respond to sensors.",
+    deadline: "2026-05-01",
+    image: "https://picsum.photos/300?1"
+  },
+  {
+    title: "Turtle Art Projects",
+    description: "Creative visual programming using Python’s turtle module.",
+    deadline: "2025-12-31",
+    image: "https://picsum.photos/300?2"
+  },
+  {
+    title: "Personal Website",
+    description: "This portfolio website built with HTML, CSS, and JavaScript.",
+    deadline: "2026-04-30",
+    image: "https://picsum.photos/300?3"
+  }
+];
+
+function renderProjects() {
+  $("#projectCards").empty();
+
+  projects.forEach(p => {
+    $("#projectCards").append(`
+      <div class="col-md-4">
+        <div class="card project-card">
+          <img src="${p.image}" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">${p.title}</h5>
+            <p class="card-text">${p.description}</p>
+            <p class="text-muted">Deadline: ${p.deadline}</p>
+          </div>
+        </div>
+      </div>
+    `);
+  });
+
+  $(".project-card").hide().fadeIn(400);
+}
+
+renderProjects();
+
+$("#sortBtn").click(() => {
+  projects.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
+  renderProjects();
+});
+
+
+// ------------------------------------------------------
+// HW8 + HW9 INITIALIZATION
+// ------------------------------------------------------
+
+$(document).ready(function () {
+  updateGreeting();
+  renderTables();
+});
