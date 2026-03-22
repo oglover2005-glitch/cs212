@@ -1,0 +1,89 @@
+/* ------------------------------------------------------
+   GLOBAL STYLES
+------------------------------------------------------ */
+
+body {
+  background-color: #f8f9fa;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h2 {
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+/* ------------------------------------------------------
+   NAVBAR
+------------------------------------------------------ */
+
+.navbar {
+  background-color: #003366;
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+/* ------------------------------------------------------
+   SKILLS LIST
+------------------------------------------------------ */
+
+#skillsList li {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#skillsList li:hover {
+  background-color: #e9ecef;
+}
+
+/* ------------------------------------------------------
+   PROJECT CARDS
+------------------------------------------------------ */
+
+.project-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* ------------------------------------------------------
+   FOOTER
+------------------------------------------------------ */
+
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  background-color: #003366;
+  color: white;
+}
+
+/* ------------------------------------------------------
+   DARK MODE
+------------------------------------------------------ */
+
+.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.dark-mode .navbar {
+  background-color: #000000;
+}
+
+.dark-mode footer {
+  background-color: #000000;
+}
+
+.dark-mode .card {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+.dark-mode #skillsList li:hover {
+  background-color: #2a2a2a;
+}
