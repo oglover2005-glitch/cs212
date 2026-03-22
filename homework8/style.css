@@ -1,0 +1,125 @@
+/* ------------------------------------------------------
+   GENERAL PAGE STYLING
+------------------------------------------------------ */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+/* Smooth scrolling offset for fixed navbar */
+html {
+  scroll-padding-top: 80px;
+  scroll-behavior: smooth;
+}
+
+/* ------------------------------------------------------
+   NAVBAR
+------------------------------------------------------ */
+
+.navbar {
+  background-color: #0d6efd;
+}
+
+.navbar-brand,
+.nav-link {
+  color: white !important;
+  font-weight: 600;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+/* ------------------------------------------------------
+   SECTIONS
+------------------------------------------------------ */
+
+section {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+/* ------------------------------------------------------
+   CARDS (Skills, Projects, etc.)
+------------------------------------------------------ */
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+  transform: scale(1.02);
+  transition: 0.2s ease-in-out;
+}
+
+/* Skill cards */
+#skillsList .card {
+  background-color: #e9f2ff;
+  border: 1px solid #bcd4ff;
+}
+
+/* ------------------------------------------------------
+   TABLES (Education & Experience)
+------------------------------------------------------ */
+
+table {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+table th {
+  background-color: #0d6efd;
+  color: white;
+  font-weight: bold;
+}
+
+table td,
+table th {
+  padding: 12px;
+  border: 1px solid #dee2e6;
+}
+
+/* ------------------------------------------------------
+   FOOTER
+------------------------------------------------------ */
+
+footer {
+  background-color: #0d6efd;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* ------------------------------------------------------
+   OPTIONAL BONUS: DARK MODE SUPPORT
+------------------------------------------------------ */
+
+.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+.dark-mode .card {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+  border: 1px solid #333;
+}
+
+.dark-mode table {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+}
+
+.dark-mode table th {
+  background-color: #333;
+}
+
+.dark-mode footer {
+  background-color: #333;
+}
