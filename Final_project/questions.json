@@ -1,0 +1,17 @@
+[
+  {
+    "question": "Who was the third President of the U.S.?",
+    "options": ["Washington", "Adams", "Lincoln", "Jefferson"],
+    "answer": "Jefferson"
+  },
+  {
+    "question": "Capital of France?",
+    "options": ["Berlin", "Madrid", "Paris", "Rome"],
+    "answer": "Paris"
+  },
+  {
+    "question": "Which artist has the most Grammy wins",
+    "options": ["Taylor Swift", "Beyonce", "Kendrick Lamar", "John Williams"],
+    "answer": "Beyonce"
+  }
+]
