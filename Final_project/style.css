@@ -2,12 +2,28 @@ body{
     font-family: Arial;
     display:flex;
     justify-content: center;
-    margin-top:50px
+    margin-top:50px;
+
+    /* NEW */
+    background-color: #1a1a1a;   /* dark grey */
+    color: white;                /* white text */
 }
 
 .quiz-container{
     width: 400px;
     text-align: center;
+
+    /* NEW */
+    background-color: #2a2a2a;   /* slightly lighter grey */
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid #007bff;   /* blue border */
+}
+
+/* NEW — blue line under titles */
+.quiz-container h1 {
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
 }
 
 button{
@@ -16,6 +32,17 @@ button{
     padding: 10px;
     width: 100%;
     cursor: pointer;
+
+    /* NEW — match dark theme */
+    background-color: #333;
+    color: white;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+}
+
+/* NEW — hover effect */
+button:hover {
+    background-color: #444;
 }
 
 .correct{
@@ -26,7 +53,9 @@ button{
 .wrong{
     background-color: red;
     color: white;
-}#nav-buttons {
+}
+
+#nav-buttons {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
@@ -35,3 +64,4 @@ button{
 #nav-buttons button {
     width: 30%;
 }
+
