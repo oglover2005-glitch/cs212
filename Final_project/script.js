@@ -88,6 +88,14 @@ document.getElementById("finishBtn").addEventListener("click", () => {
       score++;
     }
   });
+// PREVIOUS BUTTON LOGIC
+document.getElementById("prevBtn").addEventListener("click", () => {
+  if (currentQuestion > 0) {
+    currentQuestion--;
+    selected = false;
+    loadQuestion();
+  }
+});
 
   // Update results screen
   document.getElementById("scoreText").textContent =
