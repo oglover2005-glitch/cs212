@@ -14,39 +14,4 @@
     "options": ["Taylor Swift", "Beyonce", "Kendrick Lamar", "John Williams"],
     "answer": "Beyonce"
   }
-  {
-    "question": "What is the largest planet in our solar system?",
-    "options": ["Earth", "Jupiter", "Saturn", "Mars"],
-    "answer": "Jupiter"
-  },
-  {
-    "question": "How many continents are there on Earth?",
-    "options": ["5", "6", "7", "8"],
-    "answer": "7"
-  },
-   {
-    "question": "Who painted the Mona Lisa?",
-    "options": ["Vincent van Gogh", "Leonardo da Vinci", "Pablo Picasso", "Michelangelo"],
-    "answer": "Leonardo da Vinci"
-  },
-  {
-    "question": "Which ocean is the largest?",
-    "options": ["Atlantic Ocean", "Indian Ocean", "Pacific Ocean", "Arctic Ocean"],
-    "answer": "Pacific Ocean"
-  },
-   {
-    "question": "True or False: The Great Wall of China is visible from space.",
-    "options": ["True", "False"],
-    "answer": "False"
-  },
-  {
-    "question": "How many bones are in the adult human body?",
-    "options": ["106", "206", "306", "406"],
-    "answer": "206"
-  },
-  {
-    "question": "What is the hardest natural substance on Earth?",
-    "options": ["Gold", "Iron", "Diamond", "Quartz"],
-    "answer": "Diamond"
-  }
 ]
