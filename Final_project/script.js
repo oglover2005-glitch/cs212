@@ -68,3 +68,12 @@ function showFeedback(isCorrect) {
     feedback.textContent = "Wrong!";
   }
 }
+// NEXT BUTTON LOGIC
+document.getElementById("nextBtn").addEventListener("click", () => {
+  if (currentQuestion < questions.length - 1) {
+    currentQuestion++;
+    selected = false;
+    loadQuestion();
+  }
+});
+
