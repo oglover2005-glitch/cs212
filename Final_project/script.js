@@ -19,6 +19,10 @@ fetch("questions.json")
 function loadQuestion() {
   const q = questions[currentQuestion];
 
+  update question counter
+  document.getElementById("questionCounter").textContent =
+    `Question ${currentQuestion + 1} of ${questions.length}`;
+ 
   document.getElementById("question").textContent = q.question;
 
   const answersDiv = document.getElementById("answers");
