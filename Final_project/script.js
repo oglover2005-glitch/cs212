@@ -6,7 +6,7 @@ document.getElementById("startBtn").addEventListener("click", () => {
 // Store quiz questions and track current question
 let questions = [];
 let currentQuestion = 0;
-
+let selected = false;
 // Load questions from JSON file
 fetch("questions.json")
   .then(res => res.json())
@@ -34,8 +34,8 @@ function loadQuestion() {
   document.getElementById("feedback").textContent = "";
 }
 
-// Prevent multiple selections
-let selected = false;
+
+
 
 // Handle answer selection
 function selectAnswer(button, selectedAnswer) {
