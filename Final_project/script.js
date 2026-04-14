@@ -41,6 +41,7 @@ function loadQuestion() {
 function selectAnswer(button, selectedAnswer) {
   if (selected) return;
   selected = true;
+questions[currentQuestion].userAnswer = selectedAnswer;
 
   const correctAnswer = questions[currentQuestion].answer;
   const buttons = document.querySelectorAll("#answers button");
@@ -75,5 +76,34 @@ document.getElementById("nextBtn").addEventListener("click", () => {
     selected = false;
     loadQuestion();
   }
+});
+// FINISH BUTTON LOGIC
+document.getElementById("finishBtn").addEventListener("click", () => {
+  // Calculate score
+  let score = 0;
+
+  // Loop through all questions and count correct answers
+  questions.forEach((q, index) => {
+    if (q.userAnswer === q.answer) {
+      score++;
+    }
+  });
+
+  // Update results screen
+  document.getElementById("scoreText").textContent =
+    `Your score: ${score}/${questions.length}`;
+
+  const answerList = document.getElementById("answerList");
+  answerList.innerHTML = "";
+
+  questions.forEach(q => {
+    const li = document.createElement("li");
+    li.textContent = `${q.question} — Correct answer: ${q.answer}`;
+    answerList.appendChild(li);
+  });
+
+  // Switch screens
+  document.getElementById("quiz-container").style.display = "none";
+  document.getElementById("results-screen").style.display = "block";
 });
 
