@@ -1,4 +1,7 @@
-
+document.getElementById("startBtn").addEventListener("click", () => {
+  document.getElementById("start-screen").style.display = "none";
+  document.getElementById("quiz-container").style.display = "block";
+});
 
 // Store quiz questions and track current question
 let questions = [];
