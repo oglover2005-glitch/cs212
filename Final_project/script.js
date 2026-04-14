@@ -23,6 +23,11 @@ function loadQuestion() {
 
   const answersDiv = document.getElementById("answers");
   answersDiv.innerHTML = "";
+  // Clear any leftover highlight classes
+document.querySelectorAll("#answers button").forEach(btn => {
+    btn.classList.remove("correct", "wrong");
+});
+
 // Create buttons for each answer option
   q.options.forEach(option => {
     const btn = document.createElement("button");
@@ -120,6 +125,11 @@ document.getElementById("prevBtn").addEventListener("click", () => {
 document.getElementById("retryBtn").addEventListener("click", () => {
   currentQuestion = 0;
   selected = false;
+// Clear any leftover highlight classes
+document.querySelectorAll("#answers button").forEach(btn => {
+    btn.classList.remove("correct", "wrong");
+    btn.disabled = false;
+});
 
   // Clear stored answers
   questions.forEach(q => q.userAnswer = null);
@@ -127,4 +137,5 @@ document.getElementById("retryBtn").addEventListener("click", () => {
   // Switch screens
   document.getElementById("results-screen").style.display = "none";
   document.getElementById("start-screen").style.display = "block";
+  loadQuestion();
 });
