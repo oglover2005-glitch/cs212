@@ -77,6 +77,7 @@ document.getElementById("nextBtn").addEventListener("click", () => {
     loadQuestion();
   }
 });
+
 // FINISH BUTTON LOGIC
 document.getElementById("finishBtn").addEventListener("click", () => {
   // Calculate score
@@ -88,14 +89,6 @@ document.getElementById("finishBtn").addEventListener("click", () => {
       score++;
     }
   });
-// PREVIOUS BUTTON LOGIC
-document.getElementById("prevBtn").addEventListener("click", () => {
-  if (currentQuestion > 0) {
-    currentQuestion--;
-    selected = false;
-    loadQuestion();
-  }
-});
 
   // Update results screen
   document.getElementById("scoreText").textContent =
@@ -115,3 +108,11 @@ document.getElementById("prevBtn").addEventListener("click", () => {
   document.getElementById("results-screen").style.display = "block";
 });
 
+// PREVIOUS BUTTON LOGIC
+document.getElementById("prevBtn").addEventListener("click", () => {
+  if (currentQuestion > 0) {
+    currentQuestion--;
+    selected = false;
+    loadQuestion();
+  }
+});
