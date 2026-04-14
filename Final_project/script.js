@@ -116,3 +116,15 @@ document.getElementById("prevBtn").addEventListener("click", () => {
     loadQuestion();
   }
 });
+// RETRY BUTTON LOGIC
+document.getElementById("retryBtn").addEventListener("click", () => {
+  currentQuestion = 0;
+  selected = false;
+
+  // Clear stored answers
+  questions.forEach(q => q.userAnswer = null);
+
+  // Switch screens
+  document.getElementById("results-screen").style.display = "none";
+  document.getElementById("start-screen").style.display = "block";
+});
