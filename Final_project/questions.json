@@ -13,5 +13,50 @@
     "question": "Which artist has the most Grammy wins",
     "options": ["Taylor Swift", "Beyonce", "Kendrick Lamar", "John Williams"],
     "answer": "Beyonce"
+  },
+  {
+    "question": "Which planet is known as the Red Planet?",
+    "options": ["Earth", "Mars", "Jupiter", "Venus"],
+    "answer": "Mars"
+  },
+  {
+    "question": "What is the largest mammal on Earth?",
+    "options": ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
+    "answer": "Blue Whale"
+  },
+  {
+    "question": "Who wrote the play 'Romeo and Juliet'?",
+    "options": ["William Shakespeare", "Mark Twain", "Jane Austen", "Charles Dickens"],
+    "answer": "William Shakespeare"
+  },
+  {
+    "question": "What gas do plants absorb from the atmosphere?",
+    "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
+    "answer": "Carbon Dioxide"
+  },
+  {
+    "question": "Which continent is the Sahara Desert located on?",
+    "options": ["Asia", "Africa", "Australia", "South America"],
+    "answer": "Africa"
+  },
+  {
+    "question": "What is the smallest prime number?",
+    "options": ["1", "2", "3", "5"],
+    "answer": "2"
+  },
+  {
+    "question": "Which ocean is the largest?",
+    "options": ["Atlantic Ocean", "Indian Ocean", "Pacific Ocean", "Arctic Ocean"],
+    "answer": "Pacific Ocean"
+  },
+  {
+    "question": "What is the chemical symbol for gold?",
+    "options": ["Au", "Ag", "Go", "Gd"],
+    "answer": "Au"
+  },
+  {
+    "question": "How many bones are in the adult human body?",
+    "options": ["106", "206", "306", "406"],
+    "answer": "206"
   }
 ]
