@@ -7,12 +7,22 @@ document.getElementById("startBtn").addEventListener("click", () => {
 let questions = [];
 let currentQuestion = 0;
 let selected = false;
+
+function updateStartScreenBestScore() {
+  let bestScore = localStorage.getItem("bestScore");
+  if (bestScore !== null) {
+    document.getElementById("bestScoreStart").textContent =
+      `Best score: ${bestScore}/${questions.length}`;
+  }
+}
+
 // Load questions from JSON file
 fetch("questions.json")
   .then(res => res.json())
   .then(data => {
     questions = data;
     loadQuestion();
+    updateStartScreenBestScore();
   });
 
 // Display the current question and its answers
@@ -89,19 +99,33 @@ document.getElementById("nextBtn").addEventListener("click", () => {
 
 // FINISH BUTTON LOGIC
 document.getElementById("finishBtn").addEventListener("click", () => {
-  // Calculate score
-  let score = 0;
+// Calculate score
+let score = 0;
+questions.forEach(q => {
+  if (q.userAnswer === q.answer) {
+    score++;
+  }
+});
 
-  // Loop through all questions and count correct answers
-  questions.forEach((q, index) => {
-    if (q.userAnswer === q.answer) {
-      score++;
-    }
-  });
+// Save latest score
+localStorage.setItem("latestScore", score);
 
-  // Update results screen
-  document.getElementById("scoreText").textContent =
-    `Your score: ${score}/${questions.length}`;
+// Retrieve best score
+let bestScore = localStorage.getItem("bestScore");
+
+// Update best score if needed
+if (bestScore === null || score > bestScore) {
+  bestScore = score;
+  localStorage.setItem("bestScore", bestScore);
+}
+
+// Update UI
+document.getElementById("scoreText").textContent =
+  `Your score: ${score}/${questions.length}`;
+
+document.getElementById("bestScoreText").textContent =
+  `Best score: ${bestScore}/${questions.length}`;
+
 
   const answerList = document.getElementById("answerList");
   answerList.innerHTML = "";
@@ -137,6 +161,7 @@ document.querySelectorAll("#answers button").forEach(btn => {
 
   // Clear stored answers
   questions.forEach(q => q.userAnswer = null);
+updateStartScreenBestScore();
 
   // Switch screens
   document.getElementById("results-screen").style.display = "none";
