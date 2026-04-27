@@ -28,9 +28,14 @@ fetch("questions.json")
 // Display the current question and its answers
 function loadQuestion() {
   // Fade-in animation
+// Fade-in animation
 const quizBox = document.getElementById("quiz-container");
-quizBox.classList.remove("show");
-setTimeout(() => quizBox.classList.add("show"), 10);
+quizBox.style.opacity = 0; // force invisible
+setTimeout(() => {
+    quizBox.classList.add("show");
+    quizBox.style.opacity = 1;
+}, 20);
+
 
   const q = questions[currentQuestion];
 
