@@ -112,3 +112,21 @@ button:active {
     50% { transform: scale(0.95); }
     100% { transform: scale(1); }
 }
+/* Progress bar container */
+#progressBar {
+    width: 100%;
+    height: 10px;
+    background-color: #444;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    border: 1px solid #007bff;
+}
+
+/* Progress bar fill */
+#progressFill {
+    height: 100%;
+    width: 0%;
+    background-color: #007bff;
+    transition: width 0.3s ease-in-out;
+}
