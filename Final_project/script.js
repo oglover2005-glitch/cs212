@@ -199,12 +199,13 @@ function startTimer(){
 
     if (timeLeft <= 0) {
       clearInterval(timerInterval);
-      finishQuiz(); // auto submit
+      document.getElementById("finishBtn").click();
+
     }
   },1000)
 }
 //shuffle function
-function shuffleArray(questions){
+function shuffleArray(array){
   let shuffled = [...array];
   for(let i = shuffled.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
