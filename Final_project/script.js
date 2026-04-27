@@ -27,6 +27,11 @@ fetch("questions.json")
 
 // Display the current question and its answers
 function loadQuestion() {
+  // Fade-in animation
+const quizBox = document.getElementById("quiz-container");
+quizBox.classList.remove("show");
+setTimeout(() => quizBox.classList.add("show"), 10);
+
   const q = questions[currentQuestion];
 
   //update question counter
