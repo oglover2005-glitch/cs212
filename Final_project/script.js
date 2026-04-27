@@ -42,7 +42,9 @@ setTimeout(() => {
   //update question counter
   document.getElementById("questionCounter").textContent =
     `Question ${currentQuestion + 1} of ${questions.length}`;
- 
+ document.getElementById("progressFill").style.width =
+  ((currentQuestion + 1) / questions.length * 100) + "%";
+
   document.getElementById("question").textContent = q.question;
 
   const answersDiv = document.getElementById("answers");
@@ -163,6 +165,8 @@ document.getElementById("prevBtn").addEventListener("click", () => {
 document.getElementById("retryBtn").addEventListener("click", () => {
   currentQuestion = 0;
   selected = false;
+  document.getElementById("progressFill").style.width = "0%";
+
 // Clear any leftover highlight classes
 document.querySelectorAll("#answers button").forEach(btn => {
     btn.classList.remove("correct", "wrong");
