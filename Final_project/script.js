@@ -1,13 +1,17 @@
 document.getElementById("startBtn").addEventListener("click", () => {
   document.getElementById("start-screen").style.display = "none";
   document.getElementById("quiz-container").style.display = "block";
+
+  //start
+  startTimer();
 });
 
 // Store quiz questions and track current question
 let questions = [];
 let currentQuestion = 0;
 let selected = false;
-
+let timeLeft = 60;
+let timerInterval;
 function updateStartScreenBestScore() {
   let bestScore = localStorage.getItem("bestScore");
   if (bestScore !== null) {
@@ -20,7 +24,7 @@ function updateStartScreenBestScore() {
 fetch("questions.json")
   .then(res => res.json())
   .then(data => {
-    questions = data;
+    questions = shuffleArray(data)
     loadQuestion();
     updateStartScreenBestScore();
   });
@@ -166,7 +170,10 @@ document.getElementById("retryBtn").addEventListener("click", () => {
   currentQuestion = 0;
   selected = false;
   document.getElementById("progressFill").style.width = "0%";
-
+//Timer reset
+  clearInterval(timerInterval);
+  timeLeft = 60;
+  document.getElementById("timer").textContent = "Time Left: 60s";
 // Clear any leftover highlight classes
 document.querySelectorAll("#answers button").forEach(btn => {
     btn.classList.remove("correct", "wrong");
@@ -182,3 +189,28 @@ updateStartScreenBestScore();
   document.getElementById("start-screen").style.display = "block";
   loadQuestion();
 });
+/timer function
+function startTimer(){
+  const timerDisplay = document.getElementById("timer");
+
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    timerDisplay.textContent = `Time Left: ${timeLeft}s`;
+
+    if (timeLeft <= 0) {
+      clearInterval(timerInterval);
+      finishQuiz(); // auto submit
+    }
+  },1000)
+}
+//shuffle function
+function shuffleArray(questions){
+  let shuffled = [...array];
+  for(let i = shuffled.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+
+    //swap
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
