@@ -189,7 +189,7 @@ updateStartScreenBestScore();
   document.getElementById("start-screen").style.display = "block";
   loadQuestion();
 });
-/timer function
+//timer function
 function startTimer(){
   const timerDisplay = document.getElementById("timer");
 
